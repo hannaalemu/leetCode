@@ -12,3 +12,5 @@
 //O of theta is the average or closest to true analysis. Usually confused with Big O in interviews
 
 //O of Omega is the best case analysis. This is useless as the worst case can run for years. 
+
+//The main idea of asymptotic analysis is to have a measure of efficiency of algorithms that doesn’t depend on machine specific constants, and doesn’t require algorithms to be implemented and time taken by programs to be compared.

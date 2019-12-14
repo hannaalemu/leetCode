@@ -58,3 +58,19 @@ two.left = six;
 two.right = seven;
 
 levelOrder(testTree.root);
+
+//Hanna ---------------- depth first search -----
+
+const depthFirst = function(root) {
+  if(root == null) {
+    return;
+  }
+
+  else {
+    console.log(root);
+    root.visited = true;
+
+  }
+}
+
+
