@@ -34,59 +34,45 @@
 
 
 
-var romanToInt = function(str) {
-    if(str.length < 1) {
-      return;
+
+function romToNums (string) {
+
+    //Hanna - We are going to use an object as a dictionary to store the values of the Roman numeral, and refer to them to get the values to add to our sum.
+
+    let romanNums = {
+      'I' : 1,
+      'V' : 5,
+      'X' : 10,
+      'L' : 50,
+      'C' : 100,
+      'D' : 500,
+      'M' : 1000,
     }
 
-    let num = 0;
-
-    let I = 1;
-    let V = 5;
-    let X = 10;
-    let L = 50;
-    let C = 100;
-    let D = 500;
-    let M = 1000;
-
+    //Hanna - initialize the number as sum 0
+      let sum = 0;
     
-    for(let i = 0; i < str.length; i++) {
-      if(str[i] === 'I') {
-        if(str[i + 1] === 'V' || str[i + 1] === 'X') {
-         return num - I;
-        }
-         return num += I;        
-      }
+      //Uppercase just in case
+      let str = string.toUpperCase();
 
-      if(str[i] === 'X') {
-        if(str[i + 1] === 'L' || str[i + 1] === 'C') {
-         return num - X;
+    //Hanna - this loop is going to start at the last index of the string, go upto the first index(0), and decrement each time to allow us to loop backwards
+      for(let i = str.length -1; i >=0; i--) {
+    
+        let current = romanNums[str[i]];
+        let previous = romanNums[str[i + 1]];
+    
+        if(current && current < previous) {
+          sum -= current;
         }
-       return num += X;
-      }
-
-       if(str[i] === 'C') {
-        if(str[i + 1] === 'D' || str[i + 1] === 'M') {
-         return (num - C)
+        else { 
+          sum += current;
         }
-        return num += C;
       }
-      if(str[i] === 'M') {
-        num += M;
-      }
-      if(str[i] === 'L') {
-        return num += L;
-      }
-      if(str[i] === 'D') {
-        return num += D; 
-      }
-      
+    
+      return sum;
     }
-  
-    return  num;
-
-};
-
-let test = 'MCMXCIV';
-
-romanToInt(test);
+    
+    let test = 'MCMXCiv';
+    
+    romToNums(test);
+    
